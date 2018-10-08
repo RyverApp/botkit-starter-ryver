@@ -1,0 +1,36 @@
+{
+  "name": "botkit-starter-ryver",
+  "version": "1.0.0",
+  "description": "This repo contains everything you need to get started building a Ryver bot with Botkit",
+  "main": "bot.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "botkit": "^0.6.16",
+    "botkit-ryver-connector": "^1.0.0",
+    "botkit-studio-metrics": "0.0.4",
+    "debug": "^4.0.1",
+    "express": "^4.16.3",
+    "node-env-file": "^0.1.8",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyverApp/botkit-starter-ryver.git"
+  },
+  "keywords": [
+    "botkit",
+    "ryver",
+    "bots",
+    "chatbots"
+  ],
+  "author": "Luke Baulch (https://ryver.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RyverApp/botkit-starter-ryver/issues"
+  },
+  "homepage": "https://github.com/RyverApp/botkit-starter-ryver#readme"
+}
