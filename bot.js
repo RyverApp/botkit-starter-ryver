@@ -27,7 +27,7 @@ var debug = require('debug')('botkit:ryver:main');
 
 // Create the Botkit controller, which controls all instances of the bot.
 var controller = require('botkit-ryver-connector')(Botkit, {
-    debug: true,
+    //debug: true,
     api_root: process.env.api_root,
     bot_token: process.env.bot_token,
     webhook_secret: process.env.webhook_secret,
