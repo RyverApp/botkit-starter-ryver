@@ -53,24 +53,25 @@ module.exports = function (controller) {
     /* Utility function to format uptime */
     function formatUptime(uptime) {
         var unit = 'second';
-        if (uptime > 60) {
+        if (uptime > 60 * 3) {
             uptime = uptime / 60;
             unit = 'minute';
+
+            if (uptime > 60 * 3) {
+                uptime = uptime / 60;
+                unit = 'hour';
+
+                if (uptime > 24 * 3) {
+                    uptime = uptime / 24;
+                    unit = 'day';
+                }
+            }
         }
-        if (uptime > 60) {
-            uptime = uptime / 60;
-            unit = 'hour';
-        }
-        if (uptime > 72) {
-            uptime = uptime / 24;
-            unit = 'day';
-        }
+        uptime = parseInt(uptime);
         if (uptime != 1) {
             unit = unit + 's';
         }
-
-        uptime = parseInt(uptime) + ' ' + unit;
-        return uptime;
+        return uptime + ' ' + unit;
     }
 
 };
