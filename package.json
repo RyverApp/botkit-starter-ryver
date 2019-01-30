@@ -5,7 +5,7 @@
   "main": "bot.js",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "botkit": "^0.6.21",
+    "botkit": "^0.7.0",
     "botkit-ryver-connector": "^1.0.3",
     "debug": "^4.0.1",
     "express": "^4.16.3",
