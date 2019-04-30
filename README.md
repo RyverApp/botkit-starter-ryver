@@ -36,6 +36,8 @@ Depending on how you'd like your users to interact with your bot, you will need 
 - `postcomment_created` - for post comments
 - `taskcomment_created` - for task comments
 
+If you'd like to also handle custom slash-commands using botkit, this can also be done by configuring your slash-command in Ryver to point to this same web-server end-point. 
+
 ## Edit your configuration
 
 There are 3 main bits of configuration that will enable your bot to securely interact with Ryver.
@@ -49,9 +51,9 @@ E.g. `https://{your-org}.ryver.com/`
 
 In the `custom-ingegration` that was created in Ryver, you'll need to create a token. This token provides access to the API which the `botkit-ryver-connector` uses to respond to chat. This raw token string is only ever shown once so make sure you copy it into the project configuration immediately.
 
-### `webhook_secret`
+### `app_secret`
 
-As there is no authentication between the Ryver webhook service and your bot end-point, we add a signature to all webhook requests so that you can verify that these came from Ryver and not a potentially malicious actor. The webhook secret can be found with the *Outbound Webhook* that you created for this bot within Ryver.
+As there is no authentication between the Ryver webhook service and your bot end-point, we add a signature to all webhook requests so that you can verify that these came from Ryver and not a potentially malicious actor. The app secret can be found with the *Custom Integration* that you created for this bot within Ryver.
 
 ## Aditional notes
 

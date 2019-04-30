@@ -16,27 +16,31 @@ if (!process.env.api_root) {
     process.exit(1);
 }
 
-if (!process.env.webhook_secret) {
+if (!process.env.app_secret) {
     console.log('~~~~~~~~~~');
     console.log('NOTE: Webhook signature validation has not been enabled');
-    console.log('To enable, pass in a webhook_secret parameter as specified when configuring the webhook in Ryver');
+    console.log('To enable, pass in a app_secret parameter as specified when configuring the webhook in Ryver');
 }
 
 var Botkit = require('botkit');
 
 // Create the Botkit controller, which controls all instances of the bot.
-var controller = require('botkit-ryver-connector')(Botkit, {
-    //debug: true,
+var controller = require('botkit-ryver-connector').ryverBot(Botkit, {
+    debug: true,
     api_root: process.env.api_root,
     bot_token: process.env.bot_token,
-    webhook_secret: process.env.webhook_secret,
+    app_secret: process.env.app_secret,
     stats_optout: true,
 });
 
 // Set up an Express-powered webserver to expose the webhook endpoint
-require(__dirname + '/components/express_webserver.js')(controller);
+require(__dirname + '/components/webserver_setup.js')(controller);
 
 var normalizedPath = require("path").join(__dirname, "skills");
 require("fs").readdirSync(normalizedPath).forEach(function (file) {
     require("./skills/" + file)(controller);
+});
+
+controller.hears('.*', ['direct_message'], function (bot, message) {
+    bot.reply(message, 'I don\'t know how to respond to that.');
 });
