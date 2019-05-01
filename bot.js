@@ -30,7 +30,6 @@ var controller = require('botkit-ryver-connector').ryverBot(Botkit, {
     api_root: process.env.api_root,
     bot_token: process.env.bot_token,
     app_secret: process.env.app_secret,
-    stats_optout: true,
 });
 
 // Set up an Express-powered webserver to expose the webhook endpoint
